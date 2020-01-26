@@ -1,0 +1,4 @@
+name = "QuickVega"
+uuid = "8cbdc466-600a-49fa-b107-91fd9d936351"
+authors = ["David Anthoff <anthoff@berkeley.edu>"]
+version = "0.1.0"
