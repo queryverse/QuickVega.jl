@@ -1,5 +1,8 @@
 module QuickVega
 
-greet() = print("Hello World!")
+using VegaLite
 
+export histogram
+
+include("histogram.jl")
 end # module

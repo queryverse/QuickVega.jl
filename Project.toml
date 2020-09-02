@@ -3,5 +3,8 @@ uuid = "8cbdc466-600a-49fa-b107-91fd9d936351"
 authors = ["David Anthoff <anthoff@berkeley.edu>"]
 version = "0.1.0"
 
+[deps]
+VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
+
 [compat]
 julia = "1"
