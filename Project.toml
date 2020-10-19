@@ -1,6 +1,6 @@
 name = "QuickVega"
 uuid = "8cbdc466-600a-49fa-b107-91fd9d936351"
-authors = ["David Anthoff <anthoff@berkeley.edu>"]
+authors = ["David Anthoff <anthoff@berkeley.edu>","Davi Barreira <davisbarreira@gmail.com>"]
 version = "0.1.0"
 
 [compat]
