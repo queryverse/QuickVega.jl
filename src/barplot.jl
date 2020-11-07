@@ -6,7 +6,7 @@ function barplot(data; x_col=:x, y_col=:y) # assumes Tables.jl format
 end
 
 function barplot(data::AbstractVector)
-    lineplot(DataFrame(x=collect(1:length(data)), y=data))
+    barplot(DataFrame(x=collect(1:length(data)), y=data))
 end
 
 
