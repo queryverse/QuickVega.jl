@@ -9,6 +9,10 @@ function scatterplot(data::AbstractVector)
     scatterplot(DataFrame(x=collect(1:length(data)), y=data))
 end
 
+function scatterplot(x::AbstractVector, y::AbstractVector)
+    scatterplot(DataFrame(x=x, y=y))
+end
+
 
 function scatterplot(data::AbstractArray{T, 2}) where {T}
     rows, cols = size(data)

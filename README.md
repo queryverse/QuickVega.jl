@@ -35,6 +35,5 @@ QuickVega.plot(w,z,label="Plot2")
 ```julia
 Plots.plot(x -> x^2, 1,2)
 ```
-- [ ] Make loading visualization more efficient (takes to long to plot
-the same graph)
+- [ ] Enable many color schemes;
 

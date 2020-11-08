@@ -9,6 +9,10 @@ function lineplot(data::AbstractVector)
     lineplot(DataFrame(x=collect(1:length(data)), y=data))
 end
 
+function lineplot(x::AbstractVector, y::AbstractVector)
+    scatterplot(DataFrame(x=x, y=y))
+end
+
 
 function lineplot(data::AbstractArray{T, 2}) where {T}
     rows, cols = size(data)
