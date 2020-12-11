@@ -1,5 +1,5 @@
 
-function contourplot(x::AbstractVector, y::AbstractVector,z)
+function contourplot(x::AbstractVector, y::AbstractVector,z,args...)
 
   # declare empty array to receive data to be plotted
   data = Array{Float64}(undef, 0, 4)
@@ -8,7 +8,7 @@ function contourplot(x::AbstractVector, y::AbstractVector,z)
   group = 0
 
   # iterate the contours
-  for cl in Contour.levels(Contour.contours(x,y,z))
+  for cl in Contour.levels(Contour.contours(x,y,z,args...))
     lvl = Contour.level(cl)
     for line in Contour.lines(cl)
       # coordinates of this line segment
@@ -39,10 +39,10 @@ function contourplot(x::AbstractVector, y::AbstractVector,z)
 
 end
 
-function contourplot(f, x::AbstractVector, y::AbstractVector)
+function contourplot(f, x::AbstractVector, y::AbstractVector, args...)
 
   # calculate the z variable according to function f
   z = [f(xi,yi) for xi in x, yi in y];
 
-  return contourplot(x,y,z)
+  return contourplot(x,y,z, args...)
 end
