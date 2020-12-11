@@ -2,6 +2,7 @@ module QuickVega
 
 using VegaLite
 using Contour
+using KernelDensity
 
 export histogram
 export lineplot

@@ -1,5 +1,8 @@
 
-function contourplot(x::AbstractVector, y::AbstractVector,z,args...)
+function contourplot(x::AbstractVector,
+    y::AbstractVector,
+    z::AbstractArray{T,2},
+    args...) where T
 
   # declare empty array to receive data to be plotted
   data = Array{Float64}(undef, 0, 4)
@@ -45,4 +48,19 @@ function contourplot(f, x::AbstractVector, y::AbstractVector, args...)
   z = [f(xi,yi) for xi in x, yi in y];
 
   return contourplot(x,y,z, args...)
+end
+
+
+function contourplot(x::AbstractVector, y::AbstractVector, args...)
+  # use kde to estimate a density to apply the contourplot
+  d = KernelDensity.kde([x y])
+
+  return contourplot(d.x,d.y,d.density, args...)
+end
+
+function contourplot(data::AbstractArray{T, 2},args...) where {T}
+  # use kde to estimate a density to apply the contourplot
+  d = KernelDensity.kde(data)
+
+  return contourplot(d.x,d.y,d.density, args...)
 end
