@@ -61,6 +61,12 @@ git-tree-sha1 = "88d48e133e6d3dd68183309877eac74393daa7eb"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 version = "0.17.20"
 
+[[DataTables]]
+deps = ["DataValues", "ReadOnlyArrays", "TableShowUtils", "TableTraitsUtils"]
+git-tree-sha1 = "9b069372a767fc6142feecc8e6d737d1b1de4711"
+uuid = "743a1d0a-8ebc-4f23-814b-50d006366bc6"
+version = "0.1.0"
+
 [[DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
 uuid = "e2d170a0-9d28-54be-80f0-106bbe20a464"
@@ -275,9 +281,9 @@ version = "0.10.1"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "6370b5b3cf2ce5a3d2b6f7ab2dc10f374e4d7d2b"
+git-tree-sha1 = "50c9a9ed8c714945e01cd53a21007ed3865ed714"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.0.14"
+version = "1.0.15"
 
 [[Pkg]]
 deps = ["Dates", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "UUIDs"]
@@ -305,6 +311,12 @@ uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 git-tree-sha1 = "37d210f612d70f3f7d57d488cb3b6eff56ad4e41"
 uuid = "c84ed2f1-dad5-54f0-aa8e-dbefe2724439"
 version = "0.4.0"
+
+[[ReadOnlyArrays]]
+deps = ["SparseArrays", "Test"]
+git-tree-sha1 = "65f17072a35c2be7ac8941aeeae489013212e71f"
+uuid = "988b38a3-91fc-5605-94a2-ee2116b3bd83"
+version = "0.1.1"
 
 [[Reexport]]
 deps = ["Pkg"]
@@ -391,6 +403,12 @@ version = "0.9.6"
 deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
 uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
 
+[[TableShowUtils]]
+deps = ["DataValues", "Dates", "JSON", "Markdown", "Test"]
+git-tree-sha1 = "14c54e1e96431fb87f0d2f5983f090f1b9d06457"
+uuid = "5e66a065-1f0a-5976-b372-e0b8c017ca10"
+version = "0.2.5"
+
 [[TableTraits]]
 deps = ["IteratorInterfaceExtensions"]
 git-tree-sha1 = "b1ad568ba658d8cbb3b892ed5380a6f3e781a81e"
@@ -428,9 +446,11 @@ version = "2.0.0"
 
 [[VegaLite]]
 deps = ["Base64", "DataStructures", "DataValues", "Dates", "FileIO", "FilePaths", "IteratorInterfaceExtensions", "JSON", "JSONSchema", "MacroTools", "NodeJS", "Pkg", "REPL", "Random", "Setfield", "TableTraits", "TableTraitsUtils", "URIParser", "Vega"]
-git-tree-sha1 = "57634eda07c4a48f543c7e8701eb6f4ee09ba2fa"
+git-tree-sha1 = "58d86d1561f871616a69243ef6a9547b2bf201dd"
+repo-rev = "master"
+repo-url = "https://github.com/davibarreira/VegaLite.jl"
 uuid = "112f6efa-9a02-5b7d-90c0-432ed331239a"
-version = "2.3.0"
+version = "2.3.1-DEV"
 
 [[WoodburyMatrices]]
 deps = ["LinearAlgebra", "SparseArrays"]

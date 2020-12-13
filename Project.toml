@@ -5,6 +5,8 @@ version = "0.1.0"
 
 [deps]
 Contour = "d38c429a-6771-53c6-b99e-75d170b6e991"
+DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+DataTables = "743a1d0a-8ebc-4f23-814b-50d006366bc6"
 KernelDensity = "5ab0869b-81aa-558d-bb23-cbf5423bbe9b"
 Setfield = "efcf1570-3423-57d1-acb7-fd33fddbac46"
 VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
