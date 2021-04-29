@@ -1,5 +1,5 @@
 # <img align="right" src="./images/QuickVega.svg" height="120"></img>
-
+<p></p>
 
 QuickVega is a Julia high-level visualization library with Vega-Lite as a backend.
 The goal of this library is to do *easy and beautiful* visualizations,
