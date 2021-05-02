@@ -19,6 +19,19 @@ include("contourplot.jl")
 include("lineplot.jl")
 include("barplot.jl")
 include("scatterplot.jl")
+
+# mutable struct SinglePlotParameters
+#   height::Int
+#   width::Int
+#   width::Int
+# end
+
+defaultParameters = Dict(
+  :height=> 100,
+  :width => 100
+)
+
+
 end # module
 
 

@@ -54,6 +54,7 @@ function contourplot(x::AbstractVector,
 
 end
 
+
 function contourplot(f, x::AbstractVector, y::AbstractVector,
   levels=nothing; kwargs...)
 
@@ -80,6 +81,15 @@ function contourplot(data::AbstractArray{T, 2},
 
   return contourplot(d.x,d.y,d.density,levels; kwargs...)
 end
+
+# function contourplot(data, x_col=:x, y_col=:y; kwargs...) # assumes Tables.jl format
+
+#   d    = KernelDensity.kde(Array(data[!,[x_col,y_col]]))
+
+#   return contourplot(data[!,x_col],
+#               data[!,y_col],
+#               d.density, levels=nothing; kwargs...)
+# end
 
   # There is a bug in VegaLite.jl, and the code below is note working
   # By now, the implementation requires the use of DataFrame
