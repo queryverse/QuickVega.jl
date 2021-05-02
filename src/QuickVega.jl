@@ -4,6 +4,7 @@ using VegaLite
 using Contour
 using KernelDensity
 using DataStructures
+using DataFrames
 
 export histogram
 export lineplot
@@ -12,7 +13,7 @@ export scatterplot
 export contourplot
 export updatePlot!
 
-include("handleParams.jl")
+include("updateSpecs.jl")
 include("histogram.jl")
 include("contourplot.jl")
 include("lineplot.jl")

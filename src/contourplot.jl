@@ -1,6 +1,7 @@
 function contourplot(x::AbstractVector,
     y::AbstractVector,
-    z::AbstractArray{T,2};
+    z::AbstractArray{T,2},
+    levels=nothing;
     kwargs...) where T
 
   # declare empty array to receive data to be plotted
@@ -9,8 +10,15 @@ function contourplot(x::AbstractVector,
   # to differentiate when there is a lineb reak in the same contour
   group = 1
 
+  if levels == nothing
+    allcl =  Contour.levels(Contour.contours(x,y,z))
+  else
+    allcl = Contour.levels(Contour.contours(x,y,z,levels))
+  end
+
   # iterate the contours
-  for cl in Contour.levels(Contour.contours(x,y,z))
+  # for cl in Contour.levels(Contour.contours(x,y,z))
+  for cl in allcl
     lvl = Contour.level(cl)
     for line in Contour.lines(cl)
       # coordinates of this line segment
@@ -32,15 +40,34 @@ function contourplot(x::AbstractVector,
   updatePlot!(p;kwargs...)
   return p
 
+end
 
-  # Macro Version
-  # return @vlplot(data=df,
-  #          mark="line",
-  #          x      = {:x,type="quantitative"},
-  #          y      = {:y,type="quantitative"},
-  #          color  = {:z,type="quantitative"},
-  #          order  = {field="row",type="quantitative"},
-  #          detail = {:group,type="quantitative"})
+function contourplot(f, x::AbstractVector, y::AbstractVector,
+  levels=nothing; kwargs...)
+
+  # calculate the z variable according to function f
+  z = [f(xi,yi) for xi in x, yi in y];
+
+  return contourplot(x,y,z,levels; kwargs...)
+end
+
+
+function contourplot(x::AbstractVector, y::AbstractVector,
+  levels=nothing; kwargs...)
+  # use kde to estimate a density to apply the contourplot
+  d = KernelDensity.kde([x y])
+
+  return contourplot(d.x,d.y,d.density,levels; kwargs...)
+end
+
+function contourplot(data::AbstractArray{T, 2},
+  levels=nothing; kwargs...) where {T}
+
+  # use kde to estimate a density to apply the contourplot
+  d = KernelDensity.kde(data)
+
+  return contourplot(d.x,d.y,d.density,levels; kwargs...)
+end
 
   # There is a bug in VegaLite.jl, and the code below is note working
   # By now, the implementation requires the use of DataFrame
@@ -50,28 +77,3 @@ function contourplot(x::AbstractVector,
   #           color  = {data[:,3],type="quantitative"},
   #           order  = {field="row",type="quantitative"},
   #           detail = {data[:,4],type="quantitative"})
-
-end
-
-function contourplot(f, x::AbstractVector, y::AbstractVector; kwargs...)
-
-  # calculate the z variable according to function f
-  z = [f(xi,yi) for xi in x, yi in y];
-
-  return contourplot(x,y,z; kwargs...)
-end
-
-
-function contourplot(x::AbstractVector, y::AbstractVector; kwargs...)
-  # use kde to estimate a density to apply the contourplot
-  d = KernelDensity.kde([x y])
-
-  return contourplot(d.x,d.y,d.density; kwargs...)
-end
-
-function contourplot(data::AbstractArray{T, 2}; kwargs...) where {T}
-  # use kde to estimate a density to apply the contourplot
-  d = KernelDensity.kde(data)
-
-  return contourplot(d.x,d.y,d.density; kwargs...)
-end
