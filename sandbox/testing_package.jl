@@ -15,11 +15,11 @@ using JSON
 d = Distributions.MultivariateNormal(μ,Σ)
 samples = rand(d,300)';
 data = DataTables.DataTable(x=samples[:,1],y=samples[:,2])
-p = QuickVega.scatterplot(samples)
+p = QuickVega.scatterplot(samples,zcolor=rand(10))
 
 
 
-v = vlplot(mark=:circle,x=rand(10),y=rand(10),color=(value="red",))
+# v = vlplot(mark=:circle,x=rand(10),y=rand(10),color=(value="red",))
 
 
 # VegaLite.save()

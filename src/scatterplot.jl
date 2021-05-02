@@ -1,5 +1,9 @@
-function scatterplot(data, x_col=:x, y_col=:y;kwargs...) # assumes Tables.jl format
-    p = @vlplot(data=data,:circle, x=x_col, y=y_col)
+function scatterplot(data, x_col=:x, y_col=:y; kwargs...) # assumes Tables.jl format
+    type_x, type_y = inferType(data[!,:x],data[!,:y])
+    p = @vlplot(data=data,
+                :circle,
+                x={field=x_col,type=type_x},
+                y={field=y_col,type=type_y})
     updatePlot!(p;kwargs...)
     return p
 end

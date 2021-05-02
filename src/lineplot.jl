@@ -1,5 +1,9 @@
 function lineplot(data; x_col=:x, y_col=:y, kwargs...) # assumes Tables.jl format
-    p = @vlplot(data=data,mark=:line, x=x_col, y=y_col)
+    x_type, y_type = inferType(data[!,:x],data[!,:y])
+    p = @vlplot(data=data,
+                :line,
+                x={x_col,type=x_type},
+                y={y_col,type=y_type})
     updatePlot!(p;kwargs...)
     return p
 end
@@ -9,7 +13,7 @@ function lineplot(data::AbstractVector; kwargs...)
 end
 
 function lineplot(x::AbstractVector, y::AbstractVector; kwargs...)
-    scatterplot(DataFrame(x=x, y=y); kwargs...)
+    lineplot(DataFrame(x=x, y=y); kwargs...)
 end
 
 
