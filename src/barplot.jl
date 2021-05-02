@@ -4,7 +4,7 @@ using DataFrames
 function barplot(data; x_col=:x, y_col=:y, kwargs...) # assumes Tables.jl format
     x_type, y_type = inferType(data[!,:x],data[!,:y])
     p = @vlplot(data=data,
-                :bar,
+                mark={type=:bar},
                 x={x_col, type=x_type},
                 y={y_col, type=y_type})
     updatePlot!(p;kwargs...)

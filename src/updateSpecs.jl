@@ -9,6 +9,10 @@ function updatePlot!(p::VegaLite.VLSpec;kwargs...)
   for (key,value) in kwargs
     # TODO: Write a proper way to handle the errors
 
+    if key == :opacity
+      p.params["mark"]["opacity"] = value
+    end
+
     if key == :color
       p.params["encoding"]["color"] = OrderedDict{String,Any}("value"=>value) 
     end
