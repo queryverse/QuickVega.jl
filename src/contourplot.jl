@@ -1,7 +1,7 @@
 function contourplot(x::AbstractVector,
     y::AbstractVector,
     z::AbstractArray{T,2},
-    levels=nothing;
+    levels=nothing; mark="line",
     kwargs...) where T
 
   # declare empty array to receive data to be plotted
@@ -30,13 +30,13 @@ function contourplot(x::AbstractVector,
 
   # Partial implementation due to bug on VegaLite.jl
   df = DataFrames.DataFrame(data,["x","y","z","group"]);
-  p  = vlplot(data=df,
-           mark="line",
-           x      = ( field="x",type="quantitative" ),
-           y      = ( field="y",type="quantitative" ),
-           color  = ( field="z",type="quantitative" ),
-           order  = ( field="row",type="quantitative" ),
-           detail = ( field="group",type="quantitative" ))
+  p  = @vlplot(data=df,
+           mark   = {type=mark },
+           x      = { field="x",type="quantitative" },
+           y      = { field="y",type="quantitative" },
+           color  = { field="z",type="quantitative" },
+           order  = { field="row",type="quantitative" },
+           detail = { field="group",type="quantitative" })
   updatePlot!(p;kwargs...)
   return p
 

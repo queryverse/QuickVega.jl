@@ -1,5 +1,6 @@
 function lineplot(data; x_col=:x, y_col=:y, kwargs...) # assumes Tables.jl format
-    x_type, y_type = inferType(data[!,:x],data[!,:y])
+    x_type = inferType(data[!,x_col])
+    y_type = inferType(data[!,y_col])
     p = @vlplot(data=data,
                 mark={type=:line},
                 x={x_col,type=x_type},

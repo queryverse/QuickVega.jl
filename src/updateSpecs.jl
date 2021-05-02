@@ -19,13 +19,14 @@ function updatePlot!(p::VegaLite.VLSpec;kwargs...)
     
     if key == :zcolor
 
-        # TODO: Better way to infer the type of data
-      if length(value)>1
+      if typeof(value) <: Vector
         # TODO: Check if the length of the array is equal to the data inside the plot p
+        color_type = inferType(value[1])
         p.params["data"]["values"].columns[:zcolor]= value
-        p.params["encoding"]["color"] = OrderedDict{String,Any}("field"=>:zcolor,"type"=>"quantitative") 
+        p.params["encoding"]["color"] = OrderedDict{String,Any}("field"=>:zcolor,"type"=>color_type) 
       else
-        p.params["encoding"]["color"] = OrderedDict{String,Any}("field"=>value,"type"=>"quantitative") 
+        color_type = inferType(p.params["data"]["values"].columns[value][1])
+        p.params["encoding"]["color"] = OrderedDict{String,Any}("field"=>value,"type"=>color_type) 
       end
     end
 
@@ -46,19 +47,12 @@ function updatePlot!(p::VegaLite.VLSpec;kwargs...)
   end
 end
 
-function inferType(x,y)
+function inferType(x)
   type_x = "quantitative"
-  type_y = "quantitative"
   if typeof(x[1]) <: Int
     type_x = "ordinal"
   elseif typeof(x[1]) <: Union{Char,AbstractString}
     type_x = "nominal"
   end
-
-  if typeof(y[1]) <: Int
-    type_x = "ordinal"
-  elseif typeof(y[1]) <: AbstractString
-    type_x = "nominal"
-  end
-  return type_x, type_y
+  return type_x
 end
