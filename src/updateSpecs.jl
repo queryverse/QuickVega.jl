@@ -38,11 +38,34 @@ function updatePlot!(p::VegaLite.VLSpec;kwargs...)
       p.params["encoding"]["color"]["scale"] = OrderedDict{String,Any}("scheme"=>value) 
     end
 
+    if key == :zsize
+
+      if typeof(value) <: Vector
+        # TODO: Check if the length of the array is equal to the data inside the plot p
+        size_type = inferType(value[1])
+        p.params["data"]["values"].columns[:zsize]= value
+        p.params["encoding"]["size"] = OrderedDict{String,Any}("field"=>:zsize,"type"=>size_type) 
+      else
+        size_type = inferType(p.params["data"]["values"].columns[value][1])
+        p.params["encoding"]["size"] = OrderedDict{String,Any}("field"=>value,"type"=>size_type) 
+      end
+    end
+
+    if key == :zsize_type
+      p.params["encoding"]["size"]["type"] = value
+    end
+
     if key == :x_agg
       p.params["encoding"]["x"]["aggregate"] = value
     end
     if key == :y_agg
       p.params["encoding"]["y"]["aggregate"] = value
+    end
+    if key == :color_agg
+      p.params["encoding"]["color"]["aggregate"] = value
+    end
+    if key == :size_agg
+      p.params["encoding"]["size"]["aggregate"] = value
     end
   end
 end

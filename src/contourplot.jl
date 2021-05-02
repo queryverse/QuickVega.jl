@@ -1,3 +1,15 @@
+"""
+contourplot(x::AbstractVector, y::AbstractVector,
+    z::AbstractArray{T,2},levels=nothing;mark="line", kwargs...)
+This function returns a contour plot. The variable `levels` can
+be either `Int` representing the number of levels or a list
+of values representing the actual levels to be used. It's an
+optional attribute, and in case the user leaves as `nothing`
+a default value if provided by the `Contour.contours()` function.
+
+Instead of the contour lines, the user may use `mark = "area"`
+in order to get the filled contours.
+"""
 function contourplot(x::AbstractVector,
     y::AbstractVector,
     z::AbstractArray{T,2},
