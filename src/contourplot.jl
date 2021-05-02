@@ -1,16 +1,3 @@
-function handleKwargs!(p::VegaLite.VLSpec;kwargs...)
-  for (key,value) in kwargs
-
-    if key == :color
-      p.params["encoding"]["color"] = OrderedDict{String,Any}("value"=>value) 
-    end
-
-    if key == :color_scheme
-      p.params["encoding"]["color"]["scale"] = OrderedDict{String,Any}("scheme"=>value) 
-    end
-  end
-
-end
 function contourplot(x::AbstractVector,
     y::AbstractVector,
     z::AbstractArray{T,2};
@@ -42,7 +29,7 @@ function contourplot(x::AbstractVector,
            color  = ( field="z",type="quantitative" ),
            order  = ( field="row",type="quantitative" ),
            detail = ( field="group",type="quantitative" ))
-  handleKwargs!(p;kwargs...)
+  updatePlot!(p;kwargs...)
   return p
 
 

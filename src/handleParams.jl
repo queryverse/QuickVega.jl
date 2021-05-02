@@ -1,4 +1,4 @@
-function handleKwargs!(p::VegaLite.VLSpec;kwargs...)
+function updatePlot!(p::VegaLite.VLSpec;kwargs...)
   for (key,value) in kwargs
 
     if key == :color

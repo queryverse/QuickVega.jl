@@ -10,8 +10,9 @@ export lineplot
 export barplot
 export scatterplot
 export contourplot
+export updatePlot!
 
-include("handleKwargs.jl")
+include("handleParams.jl")
 include("histogram.jl")
 include("contourplot.jl")
 include("lineplot.jl")
