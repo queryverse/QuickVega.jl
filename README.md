@@ -9,16 +9,16 @@ Hence, QuickVega is a wrapper to
 , providing ready-to-use visualizations.
 
 ## Proposed wishlist:
-- [ ] Scatter plot;
-- [ ] Line plot;
-- [ ] Bar plot;
-- [ ] Histogram 1D;
+- [x] Scatter plot;
+- [x] Line plot;
+- [x] Bar plot;
+- [x] Histogram 1D;
 - [ ] Histogram 2D;
 - [ ] Density(KDE) plot;
-- [ ] Countour Plot;
+- [x] Countour Plot;
 - [ ] Joint Plot;
 - [ ] Box Plot;
-- [ ] Aggregate flag, allowing for easy plot for "counting","sum", "meand", "median", e.g.:
+- [x] Aggregate flag, allowing for easy plot for "counting","sum", "meand", "median", e.g.:
 ```
 # Plot sum of intensity by color
 QuickVega.plot(df,x=:colors,y=:intensity,agg="sum")
