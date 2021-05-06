@@ -8,6 +8,13 @@ attribute must be first created in order for it to be updated. For example,
 function updatePlot!(p::VegaLite.VLSpec;kwargs...)
   for (key,value) in kwargs
     # TODO: Write a proper way to handle the errors
+    if key == :width
+      p.params["width"] = value
+    end
+
+    if key == :height
+      p.params["height"] = value
+    end
 
     if key == :opacity
       p.params["mark"]["opacity"] = value

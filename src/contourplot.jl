@@ -49,6 +49,9 @@ function contourplot(x::AbstractVector,
            color  = { field="z",type="quantitative" },
            order  = { field="row",type="quantitative" },
            detail = { field="group",type="quantitative" })
+
+
+  updatePlot!(p;defaultParameters...)
   updatePlot!(p;kwargs...)
   return p
 

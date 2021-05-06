@@ -5,6 +5,7 @@ function lineplot(data, x_col=:x, y_col=:y; kwargs...) # assumes Tables.jl forma
                 mark={type=:line},
                 x={x_col,type=x_type},
                 y={y_col,type=y_type})
+    updatePlot!(p;defaultParameters...)
     updatePlot!(p;kwargs...)
     return p
 end

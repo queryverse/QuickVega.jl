@@ -1,10 +1,12 @@
-function scatterplot(data, x_col=:x, y_col=:y; kwargs...) # assumes Tables.jl format
+function scatterplot(data, x_col=:x, y_col=:y; kwargs...)
     x_type = inferType(data[!,x_col])
     y_type = inferType(data[!,y_col])
     p = @vlplot(data=data,
                 mark={type=:circle},
                 x={field=x_col,type=x_type},
                 y={field=y_col,type=y_type})
+
+    updatePlot!(p;defaultParameters...)
     updatePlot!(p;kwargs...)
     return p
 end
