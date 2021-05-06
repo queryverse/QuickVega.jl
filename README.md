@@ -9,21 +9,21 @@ Hence, QuickVega is a wrapper to
 , providing ready-to-use visualizations.
 
 ## Proposed wishlist:
-- [ ] Scatter plot;
-- [ ] Line plot;
-- [ ] Bar plot;
-- [ ] Histogram 1D;
+- [x] Scatter plot;
+- [x] Line plot;
+- [x] Bar plot;
+- [x] Histogram 1D;
 - [ ] Histogram 2D;
 - [ ] Density(KDE) plot;
-- [ ] Countour Plot;
+- [x] Countour Plot;
 - [ ] Joint Plot;
 - [ ] Box Plot;
-- [ ] Aggregate flag, allowing for easy plot for "counting","sum", "meand", "median", e.g.:
+- [x] Aggregate flag, allowing for easy plot for "counting","sum", "meand", "median", e.g.:
 ```
 # Plot sum of intensity by color
 QuickVega.plot(df,x=:colors,y=:intensity,agg="sum")
 ```
-- [ ] Define a general `kwargs` for default plot functions, allowing
+- [x] Define a general `kwargs` for default plot functions, allowing
 an easy way to choose colors, widths, title, etc;
 - [ ] Create function to export Vega-Lite specification
 for every plot function;
@@ -39,7 +39,7 @@ QuickVega.plot(w,z,label="Plot2")
 ```julia
 Plots.plot(x -> x^2, 1,2)
 ```
-- [ ] Enable many color schemes;
+- [x] Enable many color schemes;
 - [ ] Easy multiple marks, .i.e:
 ```
 QuickVega.plot(data,x=:col1,y=:col2, mark=[:circle,:line])
