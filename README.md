@@ -18,7 +18,8 @@ Hence, QuickVega is a wrapper to
 - [x] Countour Plot;
 - [ ] Joint Plot;
 - [ ] Box Plot;
-- [x] Aggregate flag, allowing for easy plot for "counting","sum", "meand", "median", e.g.:
+- [x] Aggregate flag, allowing for easy plot for "counting","sum", "mean", "median";
+- [ ] Dark theme;
 ```
 # Plot sum of intensity by color
 QuickVega.plot(df,x=:colors,y=:intensity,agg="sum")
