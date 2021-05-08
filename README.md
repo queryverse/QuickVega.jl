@@ -19,19 +19,20 @@ Hence, QuickVega is a wrapper to
 - [ ] Joint Plot;
 - [ ] Box Plot;
 - [x] Aggregate flag, allowing for easy plot for "counting","sum", "mean", "median";
-- [ ] Dark theme;
-- [ ] Create more themes (e.g. ggplot2);
 ```
 # Plot sum of intensity by color
-QuickVega.plot(df,x=:colors,y=:intensity,agg="sum")
+QuickVega.plot(df,x=:colors,y=:intensity,y_agg="sum")
 ```
+- [ ] Default Parameters for user to modify (e.g. user can modify the QuickVega.defaultParamters with settings such as colorschemes and size);
+- [x] Dark theme (e.g. user can write setTheme!(:dark) to make plots dark);
+- [ ] Create more themes (e.g. ggplot2);
+- [ ] Easy addition of interactivity (e.g. `pan_zoom = true`);
 - [x] Define a general `kwargs` for default plot functions, allowing
 an easy way to choose colors, widths, title, etc;
 - [ ] Create function to export Vega-Lite specification
 for every plot function;
-- [ ] Create plot function for graph visualizations;
 - [ ] Allow plotting various images one over the other, similar to
-other plotting libraries, .i.e:
+other plotting libraries, e.g.:
 ```julia
 QuickVega.plot(x,y,label="Plot1")
 QuickVega.plot(w,z,label="Plot2")
