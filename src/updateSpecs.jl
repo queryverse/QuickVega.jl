@@ -8,6 +8,48 @@ attribute must be first created in order for it to be updated. For example,
 function updatePlot!(p::VegaLite.VLSpec;kwargs...)
   for (key,value) in kwargs
     # TODO: Write a proper way to handle the errors
+
+    # create the config
+    if !("config" in p.params.keys)
+      p.params["config"]  = OrderedDict{String,Any}(
+        "axis"=>OrderedDict{String,Any}(),
+        "style"=>OrderedDict{String,Any}(),
+        "title"=>OrderedDict{String,Any}()
+        )
+    end
+
+    if key == :title_color
+      p.params["config"]["title"]["color"] = value
+    end
+
+    if key == :domain_color
+      p.params["config"]["axis"]["domainColor"] = value
+    end
+
+    if key == :grid_color
+      p.params["config"]["axis"]["gridColor"] = value
+    end
+
+    if key == :tick_color
+      p.params["config"]["axis"]["tickColor"] = value
+    end
+
+    if key == :guide_label_color
+      p.params["config"]["style"]["guide-label"] = OrderedDict{String,Any}("fill"=>value)
+    end
+
+    if key == :guide_title_color
+      p.params["config"]["style"]["guide-title"] = OrderedDict{String,Any}("fill"=>value)
+    end
+
+    if key == :background_color
+      p.params["background"] = value
+    end
+
+    if key == :title
+      p.params["title"] = value
+    end
+
     if key == :width
       p.params["width"] = value
     end

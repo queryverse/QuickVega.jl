@@ -1,10 +1,10 @@
-function scatterplot(data, x_col=:x, y_col=:y; kwargs...)
-    x_type = inferType(data[!,x_col])
-    y_type = inferType(data[!,y_col])
+function scatterplot(data, x=:x, y=:y; kwargs...)
+    x_type = inferType(data[!,x])
+    y_type = inferType(data[!,y])
     p = @vlplot(data=data,
                 mark={type=:circle},
-                x={field=x_col,type=x_type},
-                y={field=y_col,type=y_type})
+                x={field=x,type=x_type},
+                y={field=y,type=y_type})
 
     updatePlot!(p;defaultParameters...)
     updatePlot!(p;kwargs...)
