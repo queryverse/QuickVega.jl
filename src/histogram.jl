@@ -1,8 +1,8 @@
-function histogram(vector::AbstractVector; use_bin=true, kwargs...)
+function histogram(vector::AbstractVector; max_bins=10, kwargs...)
 
   p = @vlplot(data=data,
               mark={type=:bar},
-              x={vector,type="quantitative", bin=use_bin},
+              x={vector,type="quantitative", bin={maxbins=max_bins}},
               y="count()")
 
   updatePlot!(p;defaultParameters...)
@@ -11,11 +11,11 @@ function histogram(vector::AbstractVector; use_bin=true, kwargs...)
 
 end
 
-function histogram(data, col_name; use_bin=true, kwargs...)
+function histogram(data, col_name; max_bins=10, kwargs...)
 
   p =  @vlplot(data=data,
                 mark={type=:bar},
-                x={col_name,type="quantitative",bin=use_bin},
+                x={col_name,type="quantitative",bin={maxbins=max_bins}},
                 y="count()")
 
   updatePlot!(p;defaultParameters...)
