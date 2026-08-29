@@ -1,5 +1,9 @@
 # QuickVega.jl
 
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Build Status](https://github.com/queryverse/QuickVega.jl/actions/workflows/juliaci.yml/badge.svg?branch=main)](https://github.com/queryverse/QuickVega.jl/actions/workflows/juliaci.yml)
+[![codecov](https://codecov.io/gh/queryverse/QuickVega.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/queryverse/QuickVega.jl)
+
 QuickVega provides a small data-first API for common plot types on top of VegaLite.jl.
 
 ## v1 API
