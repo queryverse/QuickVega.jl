@@ -7,7 +7,7 @@ version = "1.0.0-DEV"
 VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"
 
 [compat]
-julia = "1.12"
+julia = "1"
 VegaLite = "3.3"
 
 [extras]
